@@ -1,6 +1,7 @@
 const button = document.querySelector(".agregar")
 const button2 = document.querySelector(".mostrar")
 let arrayElementos = []
+let nombreRapido = ""
 let ElementoMasRapido = 10000000000000000000
 const agregarLista = ()=> {
     const caja = document.querySelector(".checkBoxes")
@@ -24,9 +25,9 @@ const agregarLista = ()=> {
                  newH5.innerHTML = `<b>Tachado:</b> ${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}  ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}` 
                  nuevoDiv.children[0].appendChild(newH5)
                 if(new Date() - element[1] < ElementoMasRapido) {
+                    nombreRapido = nuevoDiv.children[0].children[1].textContent
                     ElementoMasRapido = new Date() - element[1]
                 }
-                console.log(ElementoMasRapido)
             }
             arrayElementos[i][0] = nuevoDiv.innerHTML
         })
@@ -38,6 +39,9 @@ const agregarLista = ()=> {
         caja.appendChild(nuevoDiv)
     });
 }
+button2.addEventListener("click",()=> {
+    alert("La mas rapida fue " + nombreRapido + " en " + ElementoMasRapido/1000 + " segundos")
+})
 button.addEventListener("click",()=> {
     const caja = document.querySelector(".checkBoxes")
     const input = document.querySelector(".input")

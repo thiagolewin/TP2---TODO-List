@@ -135,3 +135,9 @@ body {
   button:active {
     transform: scale(0.9);
   }
+  img {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-left: 30px;
+  }
